@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 месяца вместе!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5e6ff;
+            color: #4a2d7a;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="%23d9b3ff" d="M20,20 Q30,10 40,20 T60,20 T80,20" opacity="0.5"/><path fill="%23e6ccff" d="M30,40 Q40,30 50,40 T70,40 T90,40" opacity="0.5"/></svg>');
+            background-size: 200px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(148, 0, 211, 0.2);
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #7d3cff;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .photo-horizontal {
+            grid-column: span 1;
+            border: 5px solid #c68cff;
+            border-radius: 10px;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            object-fit: cover;
+            width: 200px;
+        }
+
+        .photo-vertical {
+            grid-column: span 1;
+            border: 5px solid #b366ff;
+            border-radius: 10px;
+            background-color: white;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            height: 250px;
+            object-fit: cover;
+            width: 200px;
+        }
+
+        .quiz {
+            background-color: #f0d9ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .quiz-options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-option {
+            padding: 8px 15px;
+            background-color: #c68cff;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background-color: #9a4dff;
+            transform: scale(1.05);
+        }
+
+        .heart-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .heart {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #f0d9ff;
+            clip-path: path('M10,30 Q10,0 50,0 Q90,0 90,30 Q90,60 50,90 Q10,60 10,30 Z');
+        }
+
+        .heart-fill {
+            position: absolute;
+            width: 100%;
+            height: 0%;
+            background-color: #9a4dff;
+            clip-path: path('M10,30 Q10,0 50,0 Q90,0 90,30 Q90,60 50,90 Q10,60 10,30 Z');
+            bottom: 0;
+            transition: height 1s;
+        }
+
+        .result {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #7d3cff;
+            font-weight: bold;
+        }
+
+        .footer {
+            font-size: 0.9em;
+            color: #7d3cff;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #d9b3ff;
+        }
+
+        .pixel-heart, .pixel-flower {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 5s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .pixel-heart {
+            width: 20px;
+            height: 20px;
+            background-color: #ff6b9d;
+            clip-path: path('M10,6 Q10,0 14,0 Q18,0 18,6 Q18,12 10,18 Q2,12 2,6 Q2,0 6,0 Q10,0 10,6 Z');
+        }
+
+        .pixel-flower {
+            width: 20px;
+            height: 20px;
+            background-color: #b366ff;
+            clip-path: path('M10,0 Q12,4 16,4 Q12,8 10,12 Q8,8 4,4 Q8,4 10,0 Z');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Поздравляю нас, Эльдарчик!</h1>
+        <div class="message">
+            Уже 3 месяца как мы вместе! Это только начало нашего прекрасного пути. 
+            Каждый день с тобой наполнен теплом, смехом и любовью. 
+            Я благодарна судьбе за то, что ты есть в моей жизни😘😘😘
+        </div>
+
+        <div class="photo-grid">
+            <img src="images/photo_5443152762100642329_y.jpg" class="photo-horizontal" alt="Наше фото">
+            <img src="images/photo_5443152762100642328_x.jpg" class="photo-horizontal" alt="Наше фото">
+            <img src="images/IMG_5306.JPG" class="photo-horizontal" alt="Наше фото">
+            <img src="images/photo_5443152762100642331_y.jpg" class="photo-vertical" alt="Наше фото">
+            <img src="images/photo_5425099047460533095_y.jpg" class="photo-vertical" alt="Наше фото">
+            <img src="images/photo_5443152762100642332_x.jpg" class="photo-vertical" alt="Наше фото">
+        </div>
+
+        <div class="quiz">
+            <h2>MINI QUIZ❤️</h2>
+            
+            <div class="quiz-question">1. Когда мы начали встречаться?</div>
+            <div class="quiz-options">
+                <button class="quiz-option" onclick="checkAnswer(1, '19 апреля 2025', this)">18 апреля 2025</button>
+                <button class="quiz-option" onclick="checkAnswer(1, '19 апреля 2025', this)">19 апреля 2025</button>
+                <button class="quiz-option" onclick="checkAnswer(1, '19 апреля 2025', this)">20 апреля 2025</button>
+            </div>
+            
+            <div class="quiz-question">2. Когда у меня день рождения?</div>
+            <div class="quiz-options">
+                <button class="quiz-option" onclick="checkAnswer(2, '26 августа', this)">26 августа</button>
+                <button class="quiz-option" onclick="checkAnswer(2, '26 августа', this)">27 августа</button>
+                <button class="quiz-option" onclick="checkAnswer(2, '26 августа', this)">25 августа</button>
+            </div>
+            
+            <div class="quiz-question">3. Кого Алина больше всего любит?</div>
+            <div class="quiz-options">
+                <button class="quiz-option" onclick="checkAnswer(3, 'Эльдарчика', this)">Котиков</button>
+                <button class="quiz-option" onclick="checkAnswer(3, 'Эльдарчика', this)">Эльдарчика</button>
+                <button class="quiz-option" onclick="checkAnswer(3, 'Эльдарчика', this)">Щенков</button>
+            </div>
+            
+            <div class="heart-container">
+                <div class="heart"></div>
+                <div class="heart-fill" id="heartFill"></div>
+            </div>
+            
+            <div class="result" id="quizResult"></div>
+        </div>
+
+        <div class="footer">
+            © Авторские права принадлежат девушке Колбаева Эльдара
+        </div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="music/podnebom.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let correctAnswers = 0;
+        const totalQuestions = 3;
+        const answeredQuestions = new Set();
+
+        function checkAnswer(questionId, correctAnswer, button) {
+            if (answeredQuestions.has(questionId)) return;
+            
+            if (button.textContent === correctAnswer) {
+                correctAnswers++;
+                button.style.backgroundColor = '#4CAF50';
+            } else {
+                button.style.backgroundColor = '#f44336';
+                // Highlight correct answer
+                const options = button.parentElement.children;
+                for (let opt of options) {
+                    if (opt.textContent === correctAnswer) {
+                        opt.style.backgroundColor = '#4CAF50';
+                    }
+                }
+            }
+            
+            answeredQuestions.add(questionId);
+            
+            if (answeredQuestions.size === totalQuestions) {
+                const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+                document.getElementById('heartFill').style.height = percentage + '%';
+                document.getElementById('quizResult').textContent = 
+                    `Ты ответил правильно на ${correctAnswers} из ${totalQuestions} вопросов (${percentage}%)!`;
+            }
+        }
+
+        // Create floating pixel elements
+        function createFloatingElements() {
+            const container = document.querySelector('body');
+            const colors = ['#ff6b9d', '#b366ff', '#9a4dff', '#ff8fab'];
+            
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = Math.random() > 0.5 ? 'pixel-heart' : 'pixel-flower';
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.top = Math.random() * 100 + 'vh';
+                element.style.opacity = Math.random() * 0.5 + 0.3;
+                element.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                element.style.animationDelay = Math.random() * 5 + 's';
+                element.style.transform = 'scale(' + (Math.random() * 0.5 + 0.5) + ')';
+                container.appendChild(element);
+            }
+        }
+
+        window.onload = function() {
+            createFloatingElements();
+            
+            // Try to autoplay music (may be blocked by browser)
+            const audio = document.querySelector('audio');
+            audio.volume = 0.3;
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    // Autoplay was prevented, show play button
+                    const playButton = document.createElement('button');
+                    playButton.textContent = 'Включить музыку';
+                    playButton.style.position = 'fixed';
+                    playButton.style.bottom = '20px';
+                    playButton.style.right = '20px';
+                    playButton.style.padding = '10px 15px';
+                    playButton.style.background = '#9a4dff';
+                    playButton.style.color = 'white';
+                    playButton.style.border = 'none';
+                    playButton.style.borderRadius = '20px';
+                    playButton.style.cursor = 'pointer';
+                    playButton.style.zIndex = '1000';
+                    playButton.onclick = function() {
+                        audio.play();
+                        playButton.remove();
+                    };
+                    document.body.appendChild(playButton);
+                });
+            }
+        };
+    </script>
+</body>
+</html>
